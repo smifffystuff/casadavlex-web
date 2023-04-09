@@ -30,7 +30,7 @@ then
 	VNUM2=$((VNUM2+1))
 elif [[ $VERSION == 'patch' ]]
 then
-	VNUM3=$$((VNUM3+1))
+	VNUM3=$((VNUM3+1))
 else
 	echo "No version type ot incorrect spelling"
 	exit 1
