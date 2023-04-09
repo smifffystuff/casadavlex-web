@@ -1,0 +1,30 @@
+﻿@page "/"
+
+<PageTitle>Casa DavLex</PageTitle>
+
+<h1 class="text-center">Welcome to <span style="font-family: 'Old English Text MT';">Casa&nbsp;DavLex</span></h1>
+
+<div class="container">
+        <div class="d-flex flex-column align-content-around gap-5">
+     
+            <div class="align-self-center">
+                <Carousel @bind-SelectedSlide="@selectedSlide" Width="Width.Is75" Autoplay="false">
+                    <CarouselSlide Name="1">
+                        <Image Source="images/Image1.jpg" Text="Lights image" Display="Display.Block" Width="Width.Is100" />
+                    </CarouselSlide>
+                    <CarouselSlide Name="2">
+                            <Image Source="images/Image2.jpg" Text="Keyboard image" Display="Display.Block" Width="Width.Is100" />
+                    </CarouselSlide>
+                    <CarouselSlide Name="3">
+                            <Image Source="images/Image3.jpg" Text="Road image" Display="Display.Block" Width="Width.Is100" />
+                    </CarouselSlide>
+                </Carousel>
+            </div>
+            <div>This is some more text</div>
+        </div>
+</div>
+
+
+@code {
+    private string selectedSlide = "2";
+}
