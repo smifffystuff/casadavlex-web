@@ -54,6 +54,8 @@ fi
 
 echo ::set-output name=git-tag::$NEW_TAG
 
+echo $(terraform -v)
+
 exit 0
 
 
