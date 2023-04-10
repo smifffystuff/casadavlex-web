@@ -6,6 +6,9 @@ echo "Current Version: $CURRENT_VERSION"
 
 echo "git-tag=$CURRENT_VERSION" >> $GITHUB_OUTPUT
 
+cd Terraform
+terraform plan
+
 exit 0
 
 

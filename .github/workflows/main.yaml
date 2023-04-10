@@ -81,6 +81,9 @@ jobs:
 
       - name: Run script
         id: run-tf-script
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.TF_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.TF_AWS_SECRET_ACCESS_KEY }}
         run: |
           bash ./build/tf_deploy.sh
         
