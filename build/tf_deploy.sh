@@ -6,6 +6,8 @@ echo "Current Version: $CURRENT_VERSION"
 
 echo "git-tag=$CURRENT_VERSION" >> $GITHUB_OUTPUT
 
+export TF_VAR_app_image_version=$CURRENT_VERSION
+
 cd Terraform
 terraform init
 terraform plan

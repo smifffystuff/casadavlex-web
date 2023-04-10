@@ -7,7 +7,7 @@ jobs:
   build-and-push:  
     name: Build and Push to ECR
     runs-on: ubuntu-latest
-    if: ${{ false }}
+    #if: ${{ false }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -47,7 +47,7 @@ jobs:
   push_to_hub:
     name: Push Docker Image to Docker Hub
     runs-on: ubuntu-latest
-    if: ${{ false }}
+    #if: ${{ false }}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -74,6 +74,7 @@ jobs:
 
   terraform-build:
     name: Perform Terraform actions
+    needs: [build-and-push, push_to_hub]
     runs-on: ubuntu-latest
     steps: 
       - name: Check out the repo
@@ -84,7 +85,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.TF_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.TF_AWS_SECRET_ACCESS_KEY }}
-          TF_VAR_host_name: api
+          TF_VAR_host_name: api 
         run: |
           bash ./build/tf_deploy.sh
         
