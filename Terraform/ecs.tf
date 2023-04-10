@@ -7,6 +7,7 @@ data "template_file" "casadavlex_tpl" {
 
   vars = {
     app_image      = var.app_image
+    app_image_version = var.app_image_version
     app_port       = var.app_port
     fargate_cpu    = var.fargate_cpu
     fargate_memory = var.fargate_memory

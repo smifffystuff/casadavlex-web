@@ -22,7 +22,7 @@ else
 }
 
 app.UseHttpsRedirection();
-app.UsePathBase("/casadavlex");
+//app.UsePathBase("/casadavlex");
 app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 
