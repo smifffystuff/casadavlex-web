@@ -9,6 +9,7 @@ echo "git-tag=$CURRENT_VERSION" >> $GITHUB_OUTPUT
 cd Terraform
 terraform init
 terraform plan
+terraform apply -auto-approve
 
 exit 0
 

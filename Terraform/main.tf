@@ -22,7 +22,7 @@ resource "aws_route53_record" "www" {
   zone_id = data.aws_route53_zone.davlex.zone_id
   name = "www.${data.aws_route53_zone.davlex.name}"
   type = "A"
-  ttl = "300"
-  records = ["10.0.0.1"]
+  ttl = "600"
+  records = ["10.0.0.2"]
 }
 
