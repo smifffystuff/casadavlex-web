@@ -4,6 +4,13 @@ resource "aws_security_group" "alb_sg" {
 
   ingress {
     protocol = "tcp"
+    from_port = var.app_ssl_port
+    to_port = var.app_ssl_port
+    cidr_blocks = [ "0.0.0.0/0" ]
+  }
+
+  ingress {
+    protocol = "tcp"
     from_port = var.app_port
     to_port = var.app_port
     cidr_blocks = [ "0.0.0.0/0" ]

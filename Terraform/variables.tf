@@ -11,6 +11,10 @@ variable "az_count" {
   default = 2
 }
 
+variable "app_ssl_port" {
+  default = "443"
+}
+
 variable "app_port" {
   default = "80"
 }

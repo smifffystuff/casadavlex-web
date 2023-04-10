@@ -39,10 +39,10 @@ resource "aws_ecs_service" "casadavlex-service" {
   }
 
   load_balancer {
-    target_group_arn = aws_alb_target_group.casadavlex-tg.arn
+    target_group_arn = aws_lb_target_group.casadavlex-tg.arn
     container_name   = "casadavlex"
     container_port   = var.app_port
   }
 
-  depends_on = [aws_alb_listener.casadavlex, aws_iam_role_policy_attachment.ecs_task_execution_role]
+  depends_on = [aws_lb_listener.casadavlex, aws_iam_role_policy_attachment.ecs_task_execution_role]
 }
