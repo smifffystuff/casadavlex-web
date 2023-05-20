@@ -20,7 +20,7 @@ variable "app_port" {
 }
 
 variable "ecs_task_execution_role" {
-  default = "cadadavlex-eexecution-role"
+  default = "casadavlex-execution-role"
 
 }
 
@@ -29,7 +29,7 @@ variable "app_image" {
 }
 
 variable "app_image_version" {
-    default = "v1.1.2"
+    default = "v1.1.9"
 }
 
 variable "app_count" {
