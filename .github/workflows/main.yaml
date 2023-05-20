@@ -72,22 +72,22 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-  terraform-build:
-    name: Perform Terraform actions
-    needs: [build-and-push, push_to_hub]
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Check out the repo
-        uses: actions/checkout@v3
+#   terraform-build:
+#     name: Perform Terraform actions
+#     needs: [build-and-push, push_to_hub]
+#     runs-on: ubuntu-latest
+#     steps: 
+#       - name: Check out the repo
+#         uses: actions/checkout@v3
 
-      - name: Run script
-        id: run-tf-script
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.TF_AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.TF_AWS_SECRET_ACCESS_KEY }}
-          TF_VAR_host_name: api 
-        run: |
-          bash ./build/tf_deploy.sh
+#       - name: Run script
+#         id: run-tf-script
+#         env:
+#           AWS_ACCESS_KEY_ID: ${{ secrets.TF_AWS_ACCESS_KEY_ID }}
+#           AWS_SECRET_ACCESS_KEY: ${{ secrets.TF_AWS_SECRET_ACCESS_KEY }}
+#           TF_VAR_host_name: api 
+#         run: |
+#           bash ./build/tf_deploy.sh
         
       
       
