@@ -1,5 +1,5 @@
 ---
-name: Build and Push Website to AWS ECR
+name: Build and Push Docker Image then Restart Website
 on:
   push:
     branches: [ main ]
