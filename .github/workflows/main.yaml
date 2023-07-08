@@ -43,7 +43,7 @@ jobs:
   #    run: |
   #      docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
   #      docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-
+  
   push_to_hub:
     name: Push Docker Image to Docker Hub
     runs-on: ubuntu-latest
@@ -71,6 +71,30 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+  restart_web_app:
+    name: AWS SSM Send-Command Example
+    needs: [ push_to_hub ]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: AWS SSM Send-Command
+        uses: peterkimzz/aws-ssm-send-command@master
+        id: ssm
+        with:
+          aws-region: ${{ secrets.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          instance-ids: ${{ secrets.INSTANCE_ID }}
+
+          working-directory: /home/ec2-user
+          command: ./run_web.sh
+          comment: Run New Website
+
+    # Catch SSM outputs
+      - name: Get the outputs
+        run: echo "The Command id is ${{ steps.ssm.outputs.command-id }}"
 
 #   terraform-build:
 #     name: Perform Terraform actions
