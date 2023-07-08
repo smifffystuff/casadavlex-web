@@ -90,7 +90,7 @@ jobs:
           #instance-ids: ${{ secrets.INSTANCE_ID }}
 
           working-directory: /home/ec2-user
-          command: ./run_web.sh
+          command: run_web.sh
           comment: Run New Website
 
     # Catch SSM outputs
