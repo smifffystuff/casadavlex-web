@@ -86,11 +86,10 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          instance-ids: i-01be5bafd1ecaae87
-          #instance-ids: ${{ secrets.INSTANCE_ID }}
-
+          #instance-ids: i-01be5bafd1ecaae87
+          instance-ids: ${{ secrets.INSTANCE_ID }}
           working-directory: /home/ec2-user
-          command: run_web.sh
+          command: ./run_web.sh
           comment: Run New Website
 
     # Catch SSM outputs
