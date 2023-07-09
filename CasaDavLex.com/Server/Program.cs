@@ -1,9 +1,16 @@
+using Amazon;
+using Amazon.DynamoDBv2;
+using CasaDavLex.com.Server.Repositories;
+using CasaDavLex.com.Server.Settings;
 using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection(DatabaseSettings.KeyName));
+builder.Services.AddSingleton<IAmazonDynamoDB>(_ => new AmazonDynamoDBClient(RegionEndpoint.EUWest2));
+builder.Services.AddSingleton<IImageRepository, ImageRepository>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
