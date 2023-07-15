@@ -8,7 +8,8 @@
         <div class="d-flex flex-column align-content-around gap-5">
      
             <div class="align-self-center">
-                <Carousel @bind-SelectedSlide="@selectedSlide" Width="Width.Is100" Autoplay="true" Crossfade="false" Interval="5000" Height="Height.Is75">
+            <img src="https://duypyp29vrecu.cloudfront.net/Images/1-Seawall%20To%20Hythe.jpg" />
+                @*<Carousel @bind-SelectedSlide="@selectedSlide" Width="Width.Is100" Autoplay="true" Crossfade="false" Interval="2000" Height="Height.Is75">
                     <CarouselSlide Name="1">
                         <Image Source="images/Image1.jpg" Text="Lights image" Display="Display.Block" Width="Width.Is100" />
                     </CarouselSlide>
@@ -18,20 +19,13 @@
                     <CarouselSlide Name="3">
                             <Image Source="images/Image3.jpg" Text="Road image" Display="Display.Block" Width="Width.Is100" />
                     </CarouselSlide>
-                </Carousel>
+                </Carousel>*@
             </div>
-            <div class="align-self-center">THIS SITE IS STILL UNDER CONSTRUCTION PLEASE COME BACK LATER</div>
+            <div class="align-self-center">SITE UNDER CONSTRUCTION</div>
         </div>
 </div>
 
 
 @code {
     private string selectedSlide = "2";
-
-    protected override async Task OnInitializedAsync()
-    {
-
-
-        await Task.CompletedTask;
-    }
 }
